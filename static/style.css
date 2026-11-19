@@ -234,3 +234,81 @@ footer {
 .tool-card form button:hover {
     opacity: 0.9;
 }
+/* LIFEKIT WELCOME ANIMATION */
+
+#welcome-screen {
+    position: fixed;
+    inset: 0;
+    background: #080808;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    animation: welcomeExit 1s ease 3s forwards;
+}
+
+.welcome-content {
+    text-align: center;
+    color: white;
+    animation: welcomeAppear 1.2s ease forwards;
+}
+
+.welcome-content h1 {
+    font-size: 55px;
+    letter-spacing: 12px;
+    color: #d6b45c;
+    margin: 20px 0;
+}
+
+.welcome-content p {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #aaa;
+}
+
+.welcome-content h2 {
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #d6b45c;
+}
+
+.welcome-line {
+    width: 0;
+    height: 2px;
+    background: #d6b45c;
+    margin: auto;
+    animation: lineExpand 1s ease forwards;
+}
+
+.welcome-divider {
+    width: 80px;
+    height: 1px;
+    background: #d6b45c;
+    margin: 25px auto;
+}
+
+@keyframes welcomeAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lineExpand {
+    to {
+        width: 120px;
+    }
+}
+
+@keyframes welcomeExit {
+    to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}

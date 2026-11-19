@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <!-- LifeKit Welcome Animation -->
+<div id="welcome-screen">
+    <div class="welcome-content">
+        <div class="welcome-line"></div>
+
+        <h1>LIFEKIT</h1>
+
+        <p>SMALL TOOLS. EVERYDAY SOLUTIONS.</p>
+
+        <div class="welcome-divider"></div>
+
+        <h2>Welcomed by Mr Makhubo</h2>
+    </div>
+</div>
+
 
     <header class="navbar">
         <div class="logo">LifeKit<span>.</span></div>
@@ -97,3 +112,14 @@
 
 </body>
 </html>
+<script>
+    window.addEventListener("load", function () {
+        setTimeout(function () {
+            const welcome = document.getElementById("welcome-screen");
+
+            if (welcome) {
+                welcome.remove();
+            }
+        }, 4000);
+    });
+</script>
