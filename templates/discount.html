@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Calculator | LifeKit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">LifeKit<span>.</span></div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/">Tools</a>
+        </nav>
+    </header>
+
+    <section class="tools-section">
+        <div class="section-heading">
+            <p class="tagline">LIFEKIT CALCULATOR</p>
+            <h2>Discount Calculator</h2>
+            <p>Calculate how much you'll save and what you'll pay.</p>
+        </div>
+
+        <div class="tool-card">
+            <form method="POST">
+
+                <label>Currency</label>
+                <select name="currency" required>
+                    <option value="ZAR">ZAR - South African Rand (R)</option>
+                    <option value="USD">USD - US Dollar ($)</option>
+                    <option value="EUR">EUR - Euro (€)</option>
+                    <option value="GBP">GBP - British Pound (£)</option>
+                    <option value="JPY">JPY - Japanese Yen (¥)</option>
+                    <option value="AUD">AUD - Australian Dollar (A$)</option>
+                    <option value="CAD">CAD - Canadian Dollar (C$)</option>
+                    <option value="INR">INR - Indian Rupee (₹)</option>
+                    <option value="NGN">NGN - Nigerian Naira (₦)</option>
+                    <option value="KES">KES - Kenyan Shilling (KSh)</option>
+                    <option value="GHS">GHS - Ghanaian Cedi (GH₵)</option>
+                    <option value="BRL">BRL - Brazilian Real (R$)</option>
+                    <option value="CHF">CHF - Swiss Franc</option>
+                    <option value="CNY">CNY - Chinese Yuan (¥)</option>
+                </select>
+
+                <label>Original price</label>
+                <input type="number" name="price" step="0.01"
+                       min="0" placeholder="Enter price" required>
+
+                <label>Discount percentage (%)</label>
+                <input type="number" name="percentage" step="0.01"
+                       min="0" max="100" placeholder="Enter discount" required>
+
+                <button type="submit" class="hero-button">
+                    Calculate
+                </button>
+
+            </form>
+
+            {% if result %}
+                <div style="margin-top: 30px;">
+                    <h3>Results</h3>
+                    <p>Money saved: {{ result.symbol }}{{ "%.2f"|format(result.saved) }}</p>
+                    <h2>Final price: {{ result.symbol }}{{ "%.2f"|format(result.final_price) }}</h2>
+                </div>
+            {% endif %}
+
+        </div>
+    </section>
+
+    <footer>
+        <p>LifeKit © 2026 | Small tools. Everyday solutions.</p>
+    </footer>
+
+</body>
+</html>
